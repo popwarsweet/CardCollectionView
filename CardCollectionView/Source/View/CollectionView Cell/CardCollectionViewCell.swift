@@ -17,7 +17,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         // init setup
-        self.contentView.backgroundColor = UIColor.whiteColor()
+        self.contentView.backgroundColor = UIColor(hue: 63/360, saturation: 2/100, brightness: 96/100, alpha: 1)
         self.layer.cornerRadius = 2
         self.clipsToBounds = true
     }

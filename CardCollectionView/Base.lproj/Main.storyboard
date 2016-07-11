@@ -9,7 +9,7 @@
         <scene sceneID="maO-ss-2yz">
             <objects>
                 <navigationController id="Uc3-1D-j0V" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZgP-yd-WFo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZgP-yd-WFo" customClass="TransparentNavigationBar" customModule="CardCollectionView" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -21,25 +21,15 @@
             </objects>
             <point key="canvasLocation" x="130" y="412"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Card Collection View Controller-->
         <scene sceneID="wFt-w7-XZR">
             <objects>
-                <collectionViewController id="bRF-qr-9gj" customClass="CollectionViewController" customModule="CardCollectionView" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="bRF-qr-9gj" customClass="CardCollectionViewController" customModule="CardCollectionView" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="eD5-ma-BKK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewLayout key="collectionViewLayout" id="P1f-p7-3xP" customClass="CardLayout" customModule="CardCollectionView" customModuleProvider="target"/>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nVc-RH-pVj">
-                                <rect key="frame" x="0.0" y="64" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
+                        <cells/>
                         <connections>
                             <outlet property="dataSource" destination="bRF-qr-9gj" id="v4v-Pc-lps"/>
                             <outlet property="delegate" destination="bRF-qr-9gj" id="r8k-Ku-hDM"/>

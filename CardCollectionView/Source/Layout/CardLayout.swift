@@ -8,8 +8,16 @@
 
 import UIKit
 
+struct CardLayoutConst {
+    static let maxYOffset: CGFloat = -10
+    static let minZoomLevel: CGFloat = 0.9
+    static let minAlpha: CGFloat = 0.5
+}
+
 class CardLayout: UICollectionViewFlowLayout {
     
+    
+    // MARK: - Init
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -19,6 +27,9 @@ class CardLayout: UICollectionViewFlowLayout {
         self.minimumInteritemSpacing = 0
         self.itemSize = CGSize(width: 282, height: 428)
     }
+    
+    
+    // MARK: -
     
     override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
         return true
@@ -37,14 +48,14 @@ class CardLayout: UICollectionViewFlowLayout {
                 let normalDistance = distance / activeWidth
                 if (abs(distance) < activeWidth) {
                     // translate
-                    let yOffset = -10 * (1 - abs(normalDistance))
+                    let yOffset = CardLayoutConst.maxYOffset * (1-abs(normalDistance))
                     let offsetTransform = CATransform3DMakeTranslation(0, yOffset, 0)
                     // scale
-                    let zoom = 0.90 + 0.1 * (1 - abs(normalDistance))
+                    let zoom = CardLayoutConst.minZoomLevel + (1-CardLayoutConst.minZoomLevel)*(1-abs(normalDistance))
                     attributes.transform3D = CATransform3DScale(offsetTransform, zoom, zoom, 1)
                     attributes.zIndex = 1
                     // opacity
-                    let alpha = 0.5 + 0.5 * (1-abs(normalDistance))
+                    let alpha = CardLayoutConst.minAlpha + (1-CardLayoutConst.minAlpha)*(1-abs(normalDistance))
                     attributes.alpha = alpha
                 }
             }
