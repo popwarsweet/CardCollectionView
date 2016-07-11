@@ -19,6 +19,9 @@ DerivedData
 *.hmap
 *.ipa
 
+# Demo stuff
+demo/
+
 # Bundler
 .bundle
 
