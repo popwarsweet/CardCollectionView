@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Navigation View Controller-->
         <scene sceneID="maO-ss-2yz">
             <objects>
-                <navigationController id="Uc3-1D-j0V" sceneMemberID="viewController">
+                <navigationController id="Uc3-1D-j0V" customClass="NavigationViewController" customModule="CardCollectionView" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZgP-yd-WFo" customClass="TransparentNavigationBar" customModule="CardCollectionView" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

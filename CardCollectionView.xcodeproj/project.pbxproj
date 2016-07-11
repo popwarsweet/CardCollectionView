@@ -19,6 +19,7 @@
 		27B608651D33C11C00BE3CDD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B608641D33C11C00BE3CDD /* DetailViewController.swift */; };
 		27B608681D33D04200BE3CDD /* TransparentNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B608671D33D04200BE3CDD /* TransparentNavigationBar.swift */; };
 		27B6086A1D33D59000BE3CDD /* DetailViewToCardAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B608691D33D59000BE3CDD /* DetailViewToCardAnimator.swift */; };
+		27B6086D1D33EAF200BE3CDD /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6086C1D33EAF200BE3CDD /* NavigationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		27B608641D33C11C00BE3CDD /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = "Source/Controller/View Controller/DetailViewController.swift"; sourceTree = "<group>"; };
 		27B608671D33D04200BE3CDD /* TransparentNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransparentNavigationBar.swift; path = Source/View/NavigationBar/TransparentNavigationBar.swift; sourceTree = "<group>"; };
 		27B608691D33D59000BE3CDD /* DetailViewToCardAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewToCardAnimator.swift; path = Source/Controller/Animation/DetailViewToCardAnimator.swift; sourceTree = "<group>"; };
+		27B6086C1D33EAF200BE3CDD /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationViewController.swift; path = "Source/Controller/Navigation Controller/NavigationViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		27B608551D33812A00BE3CDD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				27B6086B1D33EAC500BE3CDD /* Navigation Controller */,
 				27B608611D33BD6C00BE3CDD /* Animation */,
 				27B6085E1D33BCD400BE3CDD /* Transition Controller */,
 				27B608561D33813200BE3CDD /* View Controller */,
@@ -147,6 +150,14 @@
 				27B608671D33D04200BE3CDD /* TransparentNavigationBar.swift */,
 			);
 			name = NavigationBar;
+			sourceTree = "<group>";
+		};
+		27B6086B1D33EAC500BE3CDD /* Navigation Controller */ = {
+			isa = PBXGroup;
+			children = (
+				27B6086C1D33EAF200BE3CDD /* NavigationViewController.swift */,
+			);
+			name = "Navigation Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +239,7 @@
 				27B6085D1D33888700BE3CDD /* CardCollectionViewCell.swift in Sources */,
 				27B608591D33849200BE3CDD /* CardLayout.swift in Sources */,
 				27B6086A1D33D59000BE3CDD /* DetailViewToCardAnimator.swift in Sources */,
+				27B6086D1D33EAF200BE3CDD /* NavigationViewController.swift in Sources */,
 				27B608651D33C11C00BE3CDD /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

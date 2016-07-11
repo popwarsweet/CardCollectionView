@@ -73,6 +73,13 @@ class CardCollectionViewController: UICollectionViewController {
         backgroundGradientLayer.frame = self.view.bounds
     }
     
+    
+    // MARK: - Status Bar
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
 }
 
 
