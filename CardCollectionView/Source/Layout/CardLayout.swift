@@ -36,7 +36,7 @@ class CardLayout: UICollectionViewFlowLayout {
                 let distance = visibleRect.midX - attributes.center.x
                 let normalDistance = distance / activeWidth
                 if (abs(distance) < activeWidth) {
-                    // tranlate
+                    // translate
                     let yOffset = -10 * (1 - abs(normalDistance))
                     let offsetTransform = CATransform3DMakeTranslation(0, yOffset, 0)
                     // scale
