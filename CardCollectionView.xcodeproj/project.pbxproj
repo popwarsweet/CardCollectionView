@@ -12,6 +12,9 @@
 		27B608471D337FFF00BE3CDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B608451D337FFF00BE3CDD /* Main.storyboard */; };
 		27B608491D337FFF00BE3CDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B608481D337FFF00BE3CDD /* Assets.xcassets */; };
 		27B6084C1D337FFF00BE3CDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B6084A1D337FFF00BE3CDD /* LaunchScreen.storyboard */; };
+		27B608541D33811C00BE3CDD /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B608531D33811C00BE3CDD /* CollectionViewController.swift */; };
+		27B608591D33849200BE3CDD /* CardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B608581D33849200BE3CDD /* CardLayout.swift */; };
+		27B6085D1D33888700BE3CDD /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6085C1D33888700BE3CDD /* CardCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		27B608481D337FFF00BE3CDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27B6084B1D337FFF00BE3CDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27B6084D1D337FFF00BE3CDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27B608531D33811C00BE3CDD /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = "Source/Controller/View Controller/CollectionViewController.swift"; sourceTree = "<group>"; };
+		27B608581D33849200BE3CDD /* CardLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardLayout.swift; path = Source/Layout/CardLayout.swift; sourceTree = "<group>"; };
+		27B6085C1D33888700BE3CDD /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardCollectionViewCell.swift; path = "Source/View/CollectionView Cell/CardCollectionViewCell.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +66,51 @@
 				27B608481D337FFF00BE3CDD /* Assets.xcassets */,
 				27B6084A1D337FFF00BE3CDD /* LaunchScreen.storyboard */,
 				27B6084D1D337FFF00BE3CDD /* Info.plist */,
+				27B6085A1D33885000BE3CDD /* View */,
+				27B608571D33846C00BE3CDD /* Layout */,
+				27B608551D33812A00BE3CDD /* Controller */,
 			);
 			path = CardCollectionView;
+			sourceTree = "<group>";
+		};
+		27B608551D33812A00BE3CDD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				27B608561D33813200BE3CDD /* View Controller */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		27B608561D33813200BE3CDD /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				27B608531D33811C00BE3CDD /* CollectionViewController.swift */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		27B608571D33846C00BE3CDD /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				27B608581D33849200BE3CDD /* CardLayout.swift */,
+			);
+			name = Layout;
+			sourceTree = "<group>";
+		};
+		27B6085A1D33885000BE3CDD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				27B6085B1D33885500BE3CDD /* CollectionView Cell */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		27B6085B1D33885500BE3CDD /* CollectionView Cell */ = {
+			isa = PBXGroup;
+			children = (
+				27B6085C1D33888700BE3CDD /* CardCollectionViewCell.swift */,
+			);
+			name = "CollectionView Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +184,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27B608541D33811C00BE3CDD /* CollectionViewController.swift in Sources */,
 				27B608441D337FFF00BE3CDD /* ViewController.swift in Sources */,
 				27B608421D337FFF00BE3CDD /* AppDelegate.swift in Sources */,
+				27B6085D1D33888700BE3CDD /* CardCollectionViewCell.swift in Sources */,
+				27B608591D33849200BE3CDD /* CardLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
