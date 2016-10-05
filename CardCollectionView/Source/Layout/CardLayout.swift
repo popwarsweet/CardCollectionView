@@ -22,7 +22,7 @@ class CardLayout: UICollectionViewFlowLayout {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         // init setup
-        self.scrollDirection = .Horizontal
+        self.scrollDirection = .horizontal
         self.minimumLineSpacing = 0
         self.minimumInteritemSpacing = 0
         self.itemSize = CGSize(width: 282, height: 428)
@@ -31,12 +31,12 @@ class CardLayout: UICollectionViewFlowLayout {
     
     // MARK: -
     
-    override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
     
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        guard let layoutAtts = super.layoutAttributesForElementsInRect(rect) else { return nil }
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        guard let layoutAtts = super.layoutAttributesForElements(in: rect) else { return nil }
         // we copy layout attributes here to avoid collection view cache diff warning
         let modifiedLayoutAtts = Array(NSArray(array: layoutAtts, copyItems: true)) as! [UICollectionViewLayoutAttributes]
         let visibleRect = CGRect(origin: self.collectionView!.contentOffset, size: self.collectionView!.bounds.size)
