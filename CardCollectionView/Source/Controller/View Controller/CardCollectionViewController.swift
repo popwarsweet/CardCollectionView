@@ -30,7 +30,6 @@ class CardCollectionViewController: UICollectionViewController {
         ]
         return gradient
     }()
-    var onceOnly = false
     
     // MARK: - View Lifecycle
 
@@ -63,9 +62,8 @@ class CardCollectionViewController: UICollectionViewController {
         self.collectionView!.superview!.insertSubview(pagingScrollView, belowSubview: self.collectionView!)
         self.collectionView!.addGestureRecognizer(pagingScrollView.panGestureRecognizer)
         self.collectionView!.isScrollEnabled = false
-        pagingScrollView.scrollRectToVisible(CGRect(x: Int(flowLayout.itemSize.width*2), y: 0, width: Int(flowLayout.itemSize.width), height: Int(self.view.bounds.height)), animated: false)
     }
-    
+
     
     // MARK: - Layout
     
@@ -74,25 +72,20 @@ class CardCollectionViewController: UICollectionViewController {
         backgroundGradientLayer.frame = self.view.bounds
     }
     
-    
     // MARK: - Status Bar
-    
-//    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-//        return .lightContent
-//    }
-    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
 
 // MARK: - Collection View Delegate
 
 extension CardCollectionViewController {
-    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = DetailViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
 }
 
 

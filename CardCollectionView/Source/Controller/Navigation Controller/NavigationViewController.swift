@@ -12,9 +12,9 @@ class NavigationViewController: UINavigationController {
 
     var statusBarStyle = UIStatusBarStyle.lightContent
     
-//    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-//        return statusBarStyle
-//    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return statusBarStyle
+    }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         super.pushViewController(viewController, animated: animated)
