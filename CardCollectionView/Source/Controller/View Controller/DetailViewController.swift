@@ -18,10 +18,9 @@ class DetailViewController: UIViewController {
         self.view.backgroundColor = UIColor(hue: 63/360, saturation: 2/100, brightness: 96/100, alpha: 1)
     }
     
-    
     // MARK: - Status Bar
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .Default
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }

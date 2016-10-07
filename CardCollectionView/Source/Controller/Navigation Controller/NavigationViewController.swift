@@ -10,27 +10,27 @@ import UIKit
 
 class NavigationViewController: UINavigationController {
 
-    var statusBarStyle = UIStatusBarStyle.LightContent
+    var statusBarStyle = UIStatusBarStyle.lightContent
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
         return statusBarStyle
     }
     
-    override func pushViewController(viewController: UIViewController, animated: Bool) {
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         super.pushViewController(viewController, animated: animated)
         // keep status bar updated
         updateStatusBarForTopViewController()
     }
     
-    override func popViewControllerAnimated(animated: Bool) -> UIViewController? {
-        let vc = super.popViewControllerAnimated(animated)
+    override func popViewController(animated: Bool) -> UIViewController? {
+        let vc = super.popViewController(animated: animated)
         // keep status bar updated
         updateStatusBarForTopViewController()
         return vc
     }
     
-    override func popToRootViewControllerAnimated(animated: Bool) -> [UIViewController]? {
-        let vcs = super.popToRootViewControllerAnimated(animated)
+    override func popToRootViewController(animated: Bool) -> [UIViewController]? {
+        let vcs = super.popToRootViewController(animated: animated)
         // keep status bar updated
         updateStatusBarForTopViewController()
         return vcs
@@ -38,7 +38,7 @@ class NavigationViewController: UINavigationController {
     
     private func updateStatusBarForTopViewController() {
         if let top = self.topViewController {
-            statusBarStyle = top.preferredStatusBarStyle()
+            statusBarStyle = top.preferredStatusBarStyle
             self.setNeedsStatusBarAppearanceUpdate()
         }
     }

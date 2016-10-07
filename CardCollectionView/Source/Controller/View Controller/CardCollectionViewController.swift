@@ -12,8 +12,8 @@ class CardCollectionViewController: UICollectionViewController {
     /// The pan gesture will be used for this scroll view so the collection view can page items smaller than it's width
     lazy var pagingScrollView: UIScrollView = { [unowned self] in
         let scrollView = UIScrollView()
-        scrollView.hidden = true
-        scrollView.pagingEnabled = true
+        scrollView.isHidden = true
+        scrollView.isPagingEnabled = true
         scrollView.delegate = self
         return scrollView
     }()
@@ -25,12 +25,11 @@ class CardCollectionViewController: UICollectionViewController {
         gradient.startPoint = CGPoint.zero
         gradient.endPoint = CGPoint(x: 1, y: 1)
         gradient.colors = [
-            UIColor(hue: 214/360, saturation: 4/100, brightness: 44/100, alpha: 1).CGColor,
-            UIColor(hue: 240/360, saturation: 14/100, brightness: 17/100, alpha: 1).CGColor
+            UIColor(hue: 214/360, saturation: 4/100, brightness: 44/100, alpha: 1).cgColor,
+            UIColor(hue: 240/360, saturation: 14/100, brightness: 17/100, alpha: 1).cgColor
         ]
         return gradient
     }()
-    
     
     // MARK: - View Lifecycle
 
@@ -50,7 +49,7 @@ class CardCollectionViewController: UICollectionViewController {
         }()
 
         // Register cell classes
-        self.collectionView!.registerClass(CardCollectionViewCell.self, forCellWithReuseIdentifier: CardCollectionViewCellConst.reuseId)
+        self.collectionView!.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: CardCollectionViewCellConst.reuseId)
 
         // add scroll view which we'll hijack scrolling from
         let scrollViewFrame = CGRect(
@@ -59,12 +58,12 @@ class CardCollectionViewController: UICollectionViewController {
             width: flowLayout.itemSize.width,
             height: self.view.bounds.height)
         pagingScrollView.frame = scrollViewFrame
-        pagingScrollView.contentSize = CGSize(width: flowLayout.itemSize.width*4, height: self.view.bounds.height)
+        pagingScrollView.contentSize = CGSize(width: flowLayout.itemSize.width*8, height: self.view.bounds.height)
         self.collectionView!.superview!.insertSubview(pagingScrollView, belowSubview: self.collectionView!)
         self.collectionView!.addGestureRecognizer(pagingScrollView.panGestureRecognizer)
-        self.collectionView!.scrollEnabled = false
+        self.collectionView!.isScrollEnabled = false
     }
-    
+
     
     // MARK: - Layout
     
@@ -73,20 +72,17 @@ class CardCollectionViewController: UICollectionViewController {
         backgroundGradientLayer.frame = self.view.bounds
     }
     
-    
     // MARK: - Status Bar
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
-    
 }
 
 
 // MARK: - Collection View Delegate
 
 extension CardCollectionViewController {
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = DetailViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -96,16 +92,16 @@ extension CardCollectionViewController {
 // MARK: - Collection View Datasource
 
 extension CardCollectionViewController {
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 8
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(CardCollectionViewCellConst.reuseId, forIndexPath: indexPath)
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCollectionViewCellConst.reuseId, for: indexPath)
         return cell
     }
 }
@@ -114,7 +110,7 @@ extension CardCollectionViewController {
 // MARK: - Scroll Delegate
 
 extension CardCollectionViewController {
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView === pagingScrollView {
             // adjust collection view scroll view to match paging scroll view
             let contentOffset = CGPoint(x: scrollView.contentOffset.x - self.collectionView!.contentInset.left,
@@ -129,17 +125,17 @@ extension CardCollectionViewController {
 
 extension CardCollectionViewController: CardToDetailViewAnimating {
     // returns index path at center of screen (if there is one)
-    private func centeredIndexPath() -> NSIndexPath? {
+    private func centeredIndexPath() -> IndexPath? {
         guard let collectionView = self.collectionView else { return nil }
         let centerPoint = CGPoint(x: collectionView.contentOffset.x + self.view.bounds.midX,
                                   y: collectionView.bounds.midY)
-        return collectionView.indexPathForItemAtPoint(centerPoint)
+        return collectionView.indexPathForItem(at: centerPoint)
     }
     // returns cell at center of screen (if there is one)
     private func centeredCell() -> UICollectionViewCell? {
         guard let collectionView = self.collectionView else { return nil }
         if let indexPath = centeredIndexPath() {
-            return collectionView.cellForItemAtIndexPath(indexPath)
+            return collectionView.cellForItem(at: indexPath)
         } else {
             return nil
         }
@@ -150,7 +146,7 @@ extension CardCollectionViewController: CardToDetailViewAnimating {
     }
     func beginFrameForTransition() -> CGRect {
         guard let indexPath = centeredIndexPath() else { fatalError("this transition should never exist w/o starting index path") }
-        guard let attributes = self.collectionView!.collectionViewLayout.layoutAttributesForItemAtIndexPath(indexPath) else { fatalError("layout is not returning attributes for path: \(indexPath)") }
+        guard let attributes = self.collectionView!.collectionViewLayout.layoutAttributesForItem(at: indexPath) else { fatalError("layout is not returning attributes for path: \(indexPath)") }
         // get frame of centered cell, converting to window coordinates
         var frame = attributes.frame
         frame.origin.x -= self.collectionView!.contentOffset.x
