@@ -21,6 +21,6 @@ class DetailViewController: UIViewController {
     // MARK: - Status Bar
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return .default
     }
 }
